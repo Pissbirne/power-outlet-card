@@ -1,19 +1,21 @@
 # Power Outlet Card
 
-A custom Lovelace card for Home Assistant to switch outlets and display power, energy and cost (Powercalc) with multi-language support.
+A custom Lovelace card for Home Assistant to switch outlets and display power, energy and cost with multi-language support.
 
 ## Features
 
 - **Switch outlets** — Toggle any switch/smart_plug/outlet entity
 - **Power display** — Show current power consumption (W)
 - **Energy display** — Show total energy consumption (kWh/MWh/Wh)
-- **Cost display** — Show energy costs (requires Powercalc cost entity)
+- **Cost display** — Show energy costs via Powercalc cost entity OR manual price calculation
+- **Manual cost calculation** — Set a price per kWh (e.g. 0.35 €) and the card calculates costs automatically — no Powercalc needed
 - **Powercalc auto-detect** — Automatically detects `sensor.{entity}_power`, `_energy`, `_energy_cost` entities
+- **Mini sparkline** — Optional 24h power history as small SVG line chart (like the sensor card)
 - **3 layouts** — Grid (1-6 columns), List, Compact
 - **Multi-language** — German, English, French, Dutch, Spanish (auto-detects HA language)
 - **Theme-compatible** — Uses only CSS variables, works with any HA theme
-- **Visual editor** — Full configuration via UI, no YAML needed
 - **Transparent background** — Blends seamlessly with your dashboard
+- **Visual editor** — Full configuration via UI, no YAML needed
 
 ## Installation
 
@@ -32,7 +34,7 @@ A custom Lovelace card for Home Assistant to switch outlets and display power, e
 ## Configuration
 
 ### Visual Editor
-Add a new card and search for "Power Outlet". Configure outlets, layout and display options in the editor.
+Add a new card and search for "Power Outlet". Configure outlets, layout, display options, cost calculation and sparkline in the editor.
 
 ### YAML
 ```yaml
@@ -50,6 +52,8 @@ show_name: true
 show_state: true
 theme_aware: true
 rounded: true
+price_per_kwh: 0.35
+show_sparkline: true
 outlets:
   - entity: switch.waschmaschine
     name: Waschmaschine
@@ -61,7 +65,7 @@ outlets:
     cost_entity: sensor.tv_energy_cost
 ```
 
-### Options
+### Card Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
@@ -79,6 +83,8 @@ outlets:
 | `show_state` | bool | true | Show on/off state |
 | `theme_aware` | bool | true | Use theme colors |
 | `rounded` | bool | true | Rounded corners |
+| `price_per_kwh` | number | 0 | Price per kWh for manual cost calculation (0 = disabled) |
+| `show_sparkline` | bool | false | Show 24h power sparkline |
 
 ### Outlet Options
 
@@ -89,8 +95,18 @@ outlets:
 | `icon` | string | "" | Custom icon (empty = auto) |
 | `power_entity` | string | "" | Power sensor entity |
 | `energy_entity` | string | "" | Energy sensor entity |
-| `cost_entity` | string | "" | Cost sensor entity (Powercalc) |
+| `cost_entity` | string | "" | Cost sensor entity (Powercalc, overrides manual calculation) |
 | `auto_detect` | bool | true | Auto-detect Powercalc entities |
+
+### Cost Calculation
+
+The card supports two ways to display energy costs:
+
+1. **Powercalc** (automatic): If a `cost_entity` is configured (manually or via auto-detect), the card displays the cost from that entity directly.
+
+2. **Manual calculation** (no Powercalc needed): Set `price_per_kwh` to your electricity price (e.g. `0.35` for 0.35 €/kWh). The card calculates: `cost = energy_kWh × price_per_kwh`. This works with any energy sensor and requires no additional integration.
+
+If both are configured, `cost_entity` takes priority.
 
 ## License
 
