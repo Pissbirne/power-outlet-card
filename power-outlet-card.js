@@ -175,7 +175,8 @@ let PowerOutletCard=class extends re{
     const outlets=cfg.outlets||[];
     if(!outlets.length){return V`<ha-card><div class="empty">${T("no_outlets")}</div></ha-card>`;}
     const containerClass=cfg.layout==="grid"?"outlets-grid columns-"+(cfg.columns||2):cfg.layout==="compact"?"outlets-compact":"outlets-list";
-    return V`<ha-card>${cfg.show_header&&cfg.title?V`<div class="card-title">${cfg.title}</div>`:W}<div class="${containerClass}" style="gap:${cfg.gap??8}px;">${outlets.map(o=>this._renderOutlet(o))}</div></ha-card>`;
+    const themeClass=cfg.theme_aware===false?"no-theme":"";
+    return V`<ha-card class="${themeClass}">${cfg.show_header&&cfg.title?V`<div class="card-title">${cfg.title}</div>`:W}<div class="${containerClass}" style="gap:${cfg.gap??8}px;">${outlets.map(o=>this._renderOutlet(o))}</div></ha-card>`;
   }
 };
 
@@ -225,6 +226,27 @@ ha-card{width:100%;box-sizing:border-box;padding:12px;background:transparent;box
 .outlets-compact .data-chip{font-size:10px;padding:1px 6px;}
 .outlet-sparkline{padding:0 12px 8px;width:100%;box-sizing:border-box;}
 .sparkline{width:100%;height:20px;display:block;opacity:0.8;}
+ha-card.no-theme .outlet{background:#1a1a1a;border-color:#333;}
+ha-card.no-theme .outlet:hover{border-color:#03a9f4;}
+ha-card.no-theme .outlet.on{border-left-color:#4caf50;}
+ha-card.no-theme .outlet.off{border-left-color:#555;opacity:0.7;}
+ha-card.no-theme .outlet.unavailable{border-left-color:#f44336;opacity:0.5;}
+ha-card.no-theme .outlet-icon{color:#fff;}
+ha-card.no-theme .outlet.on .outlet-icon{color:#4caf50;}
+ha-card.no-theme .outlet-name{color:#fff;}
+ha-card.no-theme .outlet-state{color:#999;}
+ha-card.no-theme .outlet.on .outlet-state{color:#4caf50;}
+ha-card.no-theme .outlet.unavailable .outlet-state{color:#f44336;}
+ha-card.no-theme .toggle-icon.on{color:#4caf50;}
+ha-card.no-theme .toggle-icon.off{color:#666;}
+ha-card.no-theme .toggle-icon.unavailable{color:#f44336;}
+ha-card.no-theme .data-chip{background:rgba(0,0,0,0.4);color:#fff;}
+ha-card.no-theme .data-chip ha-icon{color:#aaa;}
+ha-card.no-theme .data-chip.cost{background:rgba(76,175,80,0.2);}
+ha-card.no-theme .data-chip.cost ha-icon{color:#4caf50;}
+ha-card.no-theme .card-title{color:#fff;}
+ha-card.no-theme .empty{color:#999;}
+ha-card.no-theme .sparkline polyline{stroke:#03a9f4;}
 `;
 
 e([pe({attribute:false})],PowerOutletCard.prototype,"hass",void 0);
