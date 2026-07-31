@@ -132,24 +132,28 @@ let PowerOutletCard=class extends re{
     const now=Date.now();
     if(cached&&cached.timestamp&&(now-cached.timestamp)<300000)return;
     const startTime=new Date(now-86400000).toISOString();
-    this.hass.callApi("get","history/period?filter_entity_id="+entity+"&minimal_response&end_time=now&start_time="+startTime).then(function(data){
+    const self=this;
+    this.hass.callApi("get","history/period/"+startTime+"?filter_entity_id="+entity+"&minimal_response&end_time="+new Date().toISOString()).then(function(data){
       if(!data||!data[0])return;
       const states=data[0].map(function(s){return parseFloat(s.state);}).filter(function(v){return Number.isFinite(v);});
-      this._historyCache.set(entity,{timestamp:now,values:states});
-      this._tick++;
-    }.bind(this)).catch(function(){});
+      if(states.length<2)return;
+      self._historyCache.set(entity,{timestamp:now,values:states});
+      self.requestUpdate();
+    }).catch(function(){});
   }
   _renderSparkline(entity){
     if(!this._historyCache)return W;
     const cached=this._historyCache.get(entity);
-    if(!cached||!cached.values||cached.values.length<2)return W;
+    if(!cached||!cached.values||cached.values.length<2)return V`<div class="sparkline-loading"></div>`;
     const vals=cached.values;const len=vals.length;
     let min=Infinity,max=-Infinity;
     for(let i=0;i<len;i++){if(vals[i]<min)min=vals[i];if(vals[i]>max)max=vals[i];}
     const range=max-min||1;
     const points=[];
-    for(let i=0;i<len;i++){const x=(i/(len-1))*100;const y=20-((vals[i]-min)/range)*18-1;points.push(x.toFixed(1)+","+y.toFixed(1));}
-    return V`<svg class="sparkline" viewBox="0 0 100 20" preserveAspectRatio="none"><polyline points="${points.join(" ")}" fill="none" stroke="var(--primary-color,#03a9f4)" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" /></svg>`;
+    for(let i=0;i<len;i++){const x=(i/(len-1))*100;const y=18-((vals[i]-min)/range)*16-1;points.push(x.toFixed(1)+","+y.toFixed(1));}
+    const areaPoints=points.slice();
+    areaPoints.push("100,20");areaPoints.unshift("0,20");
+    return V`<svg class="sparkline" viewBox="0 0 100 20" preserveAspectRatio="none"><polygon points="${areaPoints.join(" ")}" fill="var(--primary-color,#03a9f4)" opacity="0.15" /><polyline points="${points.join(" ")}" fill="none" stroke="var(--primary-color,#03a9f4)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" /></svg>`;
   }
 
   _renderOutlet(outlet){
@@ -224,8 +228,9 @@ ha-card{width:100%;box-sizing:border-box;padding:12px;background:transparent;box
 .outlets-compact .outlet-icon{--mdc-icon-size:18px;}
 .outlets-compact .outlet-data{padding:0 8px 6px;}
 .outlets-compact .data-chip{font-size:10px;padding:1px 6px;}
-.outlet-sparkline{padding:0 12px 8px;width:100%;box-sizing:border-box;}
-.sparkline{width:100%;height:20px;display:block;opacity:0.8;}
+.outlet-sparkline{padding:0 12px 8px;width:100%;box-sizing:border-box;height:24px;}
+.sparkline{width:100%;height:24px;display:block;}
+.sparkline-loading{width:100%;height:24px;}
 ha-card.no-theme .outlet{background:#1a1a1a;border-color:#333;}
 ha-card.no-theme .outlet:hover{border-color:#03a9f4;}
 ha-card.no-theme .outlet.on{border-left-color:#4caf50;}
