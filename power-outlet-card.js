@@ -5,11 +5,11 @@ const EDITOR_TAG=CARD_NAME+"-editor";
 
 // ===== i18n =====
 const I18N={
-  de:{title:"Titel",outlets:"Steckdosen",add_outlet:"+ Steckdose hinzuf\xFCgen",outlet_entity:"Steckdosen-Entit\xE4t",power_entity:"Leistungs-Entit\xE4t (optional)",energy_entity:"Verbrauchs-Entit\xE4t (optional)",cost_entity:"Kosten-Entit\xE4t (optional, Powercalc)",icon:"Icon",name:"Name",show_power:"Leistung anzeigen",show_energy:"Verbrauch anzeigen",show_cost:"Kosten anzeigen",show_icon:"Icon anzeigen",show_name:"Name anzeigen",show_state:"Status anzeigen",columns:"Spalten",gap:"Abstand zwischen Karten",outlet_settings:"Steckdosen-Einstellungen",display_options:"Anzeige-Optionen",layout:"Layout",grid:"Raster",list:"Liste",compact:"Kompakt",power:"Leistung",energy:"Verbrauch",cost:"Kosten",today:"heute",total:"gesamt",on:"an",off:"aus",unknown:"unbekannt",unavailable:"nicht verf\xFCgbar",confirm_delete:"Diese Steckdose entfernen?",no_outlets:"Keine Steckdosen konfiguriert. F\xFCge eine hinzu!",card_title:"Steckdosen",theme_aware:"Theme-farben verwenden",show_header:"Karten-Header anzeigen",rounded:"Abgerundete Ecken",power_calc_detected:"Powercalc erkannt",auto_detect:"Automatisch erkennen (Powercalc)",advanced:"Erweitert",general:"Allgemein",per_outlet:"Pro Steckdose",move_up:"Nach oben",move_down:"Nach unten",remove:"Entfernen",outlet_name_hint:"Name (leer = Entit\xE4tsname)",tap_action:"Aktion bei Tippen",hold_action:"Aktion bei Gedr\xFCckt-Halten",toggle:"Schalten",more_info:"Mehr Info",none:"Keine",last_changed:"Zuletzt ge\xE4ndert",kwh_today:"kWh heute",cost_today:"Kosten heute",energy_total:"Verbrauch gesamt",cost_total:"Kosten gesamt",price_per_kwh:"Preis pro kWh",show_sparkline:"Sparkline anzeigen",sparkline:"Sparkline (24h)",manual_cost:"Manuelle Kostenberechnung"},
-  en:{title:"Title",outlets:"Outlets",add_outlet:"+ Add outlet",outlet_entity:"Outlet entity",power_entity:"Power entity (optional)",energy_entity:"Energy entity (optional)",cost_entity:"Cost entity (optional, Powercalc)",icon:"Icon",name:"Name",show_power:"Show power",show_energy:"Show energy",show_cost:"Show cost",show_icon:"Show icon",show_name:"Show name",show_state:"Show state",columns:"Columns",gap:"Gap between cards",outlet_settings:"Outlet settings",display_options:"Display options",layout:"Layout",grid:"Grid",list:"List",compact:"Compact",power:"Power",energy:"Energy",cost:"Cost",today:"today",total:"total",on:"on",off:"off",unknown:"unknown",unavailable:"unavailable",confirm_delete:"Remove this outlet?",no_outlets:"No outlets configured. Add one!",card_title:"Power Outlets",theme_aware:"Use theme colors",show_header:"Show card header",rounded:"Rounded corners",power_calc_detected:"Powercalc detected",auto_detect:"Auto-detect (Powercalc)",advanced:"Advanced",general:"General",per_outlet:"Per outlet",move_up:"Move up",move_down:"Move down",remove:"Remove",outlet_name_hint:"Name (empty = entity name)",tap_action:"Tap action",hold_action:"Hold action",toggle:"Toggle",more_info:"More info",none:"None",last_changed:"Last changed",kwh_today:"kWh today",cost_today:"Cost today",energy_total:"Energy total",cost_total:"Cost total",price_per_kwh:"Price per kWh",show_sparkline:"Show sparkline",sparkline:"Sparkline (24h)",manual_cost:"Manual cost calculation"},
-  fr:{title:"Titre",outlets:"Prises",add_outlet:"+ Ajouter une prise",outlet_entity:"Entit\xE9 de prise",power_entity:"Entit\xE9 de puissance (optionnel)",energy_entity:"Entit\xE9 de consommation (optionnel)",cost_entity:"Entit\xE9 de co\xFBt (optionnel, Powercalc)",icon:"Ic\xF4ne",name:"Nom",show_power:"Afficher la puissance",show_energy:"Afficher la consommation",show_cost:"Afficher les co\xFBts",show_icon:"Afficher l'ic\xF4ne",show_name:"Afficher le nom",show_state:"Afficher l'\xE9tat",columns:"Colonnes",gap:"Espacement entre cartes",outlet_settings:"Param\xE8tres des prises",display_options:"Options d'affichage",layout:"Disposition",grid:"Grille",list:"Liste",compact:"Compact",power:"Puissance",energy:"Consommation",cost:"Co\xFBt",today:"aujourd'hui",total:"total",on:"allum\xE9",off:"\xE9teint",unknown:"inconnu",unavailable:"indisponible",confirm_delete:"Supprimer cette prise?",no_outlets:"Aucune prise configur\xE9e. Ajoutez-en une!",card_title:"Prises",theme_aware:"Utiliser les couleurs du th\xE8me",show_header:"Afficher l'en-t\xEAte",rounded:"Coins arrondis",power_calc_detected:"Powercalc d\xE9tect\xE9",auto_detect:"D\xE9tection auto (Powercalc)",advanced:"Avanc\xE9",general:"G\xE9n\xE9ral",per_outlet:"Par prise",move_up:"Monter",move_down:"Descendre",remove:"Supprimer",outlet_name_hint:"Nom (vide = nom de l'entit\xE9)",tap_action:"Action au toucher",hold_action:"Action au maintien",toggle:"Basculer",more_info:"Plus d'infos",none:"Aucune",last_changed:"Dernier changement",kwh_today:"kWh aujourd'hui",cost_today:"Co\xFBt aujourd'hui",energy_total:"Consommation totale",cost_total:"Co\xFBt total",price_per_kwh:"Prix par kWh",show_sparkline:"Afficher sparkline",sparkline:"Sparkline (24h)",manual_cost:"Calcul manuel des co\xFBts"},
-  nl:{title:"Titel",outlets:"Stopcontacten",add_outlet:"+ Stopcontact toevoegen",outlet_entity:"Stopcontact entiteit",power_entity:"Vermogen entiteit (optioneel)",energy_entity:"Verbruik entiteit (optioneel)",cost_entity:"Kosten entiteit (optioneel, Powercalc)",icon:"Icoon",name:"Naam",show_power:"Toon vermogen",show_energy:"Toon verbruik",show_cost:"Toon kosten",show_icon:"Toon icoon",show_name:"Toon naam",show_state:"Toon status",columns:"Kolommen",gap:"Afstand tussen kaarten",outlet_settings:"Stopcontact instellingen",display_options:"Weergave opties",layout:"Layout",grid:"Raster",list:"Lijst",compact:"Compact",power:"Vermogen",energy:"Verbruik",cost:"Kosten",today:"vandaag",total:"totaal",on:"aan",off:"uit",unknown:"onbekend",unavailable:"niet beschikbaar",confirm_delete:"Dit stopcontact verwijderen?",no_outlets:"Geen stopcontacten geconfigureerd. Voeg er een toe!",card_title:"Stopcontacten",theme_aware:"Thema kleuren gebruiken",show_header:"Kaart koptekst tonen",rounded:"Afgeronde hoeken",power_calc_detected:"Powercalc gedetecteerd",auto_detect:"Auto-detectie (Powercalc)",advanced:"Geavanceerd",general:"Algemeen",per_outlet:"Per stopcontact",move_up:"Omhoog",move_down:"Omlaag",remove:"Verwijderen",outlet_name_hint:"Naam (leeg = entiteit naam)",tap_action:"Tik actie",hold_action:"Houd actie",toggle:"Schakel",more_info:"Meer info",none:"Geen",last_changed:"Laatst gewijzigd",kwh_today:"kWh vandaag",cost_today:"Kosten vandaag",energy_total:"Verbruik totaal",cost_total:"Kosten totaal",price_per_kwh:"Prijs per kWh",show_sparkline:"Sparkline tonen",sparkline:"Sparkline (24h)",manual_cost:"Handmatige kostenberekening"},
-  es:{title:"T\xEDtulo",outlets:"Enchufes",add_outlet:"+ A\xF1adir enchufe",outlet_entity:"Entidad de enchufe",power_entity:"Entidad de potencia (opcional)",energy_entity:"Entidad de consumo (opcional)",cost_entity:"Entidad de coste (opcional, Powercalc)",icon:"Icono",name:"Nombre",show_power:"Mostrar potencia",show_energy:"Mostrar consumo",show_cost:"Mostrar coste",show_icon:"Mostrar icono",show_name:"Mostrar nombre",show_state:"Mostrar estado",columns:"Columnas",gap:"Espacio entre tarjetas",outlet_settings:"Ajustes de enchufes",display_options:"Opciones de visualizaci\xF3n",layout:"Dise\xF1o",grid:"Cuadr\xEDcula",list:"Lista",compact:"Compacto",power:"Potencia",energy:"Consumo",cost:"Coste",today:"hoy",total:"total",on:"encendido",off:"apagado",unknown:"desconocido",unavailable:"no disponible",confirm_delete:"\xBFEliminar este enchufe?",no_outlets:"No hay enchufes configurados. \xA1A\xF1ade uno!",card_title:"Enchufes",theme_aware:"Usar colores del tema",show_header:"Mostrar encabezado",rounded:"Esquinas redondeadas",power_calc_detected:"Powercalc detectado",auto_detect:"Detecci\xF3n autom\xE1tica (Powercalc)",advanced:"Avanzado",general:"General",per_outlet:"Por enchufe",move_up:"Subir",move_down:"Bajar",remove:"Eliminar",outlet_name_hint:"Nombre (vac\xEDo = nombre de entidad)",tap_action:"Acci\xF3n al tocar",hold_action:"Acci\xF3n al mantener",toggle:"Conmutar",more_info:"M\xE1s info",none:"Ninguna",last_changed:"\xDAltimo cambio",kwh_today:"kWh hoy",cost_today:"Coste hoy",energy_total:"Consumo total",cost_total:"Coste total",price_per_kwh:"Precio por kWh",show_sparkline:"Mostrar sparkline",sparkline:"Sparkline (24h)",manual_cost:"C\xE1lculo manual de costes"},
+  de:{title:"Titel",outlets:"Steckdosen",add_outlet:"+ Steckdose hinzuf\xFCgen",outlet_entity:"Steckdosen-Entit\xE4t",power_entity:"Leistungs-Entit\xE4t (optional)",energy_entity:"Verbrauchs-Entit\xE4t (optional)",cost_entity:"Kosten-Entit\xE4t (optional, Powercalc)",icon:"Icon",name:"Name",show_power:"Leistung anzeigen",show_energy:"Verbrauch anzeigen",show_cost:"Kosten anzeigen",show_icon:"Icon anzeigen",show_name:"Name anzeigen",show_state:"Status anzeigen",columns:"Spalten",gap:"Abstand zwischen Karten",outlet_settings:"Steckdosen-Einstellungen",display_options:"Anzeige-Optionen",layout:"Layout",grid:"Raster",list:"Liste",compact:"Kompakt",power:"Leistung",energy:"Verbrauch",cost:"Kosten",today:"heute",total:"gesamt",on:"an",off:"aus",unknown:"unbekannt",unavailable:"nicht verf\xFCgbar",confirm_delete:"Diese Steckdose entfernen?",no_outlets:"Keine Steckdosen konfiguriert. F\xFCge eine hinzu!",card_title:"Steckdosen",theme_aware:"Theme-farben verwenden",show_header:"Karten-Header anzeigen",rounded:"Abgerundete Ecken",power_calc_detected:"Powercalc erkannt",auto_detect:"Automatisch erkennen (Powercalc)",advanced:"Erweitert",general:"Allgemein",per_outlet:"Pro Steckdose",move_up:"Nach oben",move_down:"Nach unten",remove:"Entfernen",outlet_name_hint:"Name (leer = Entit\xE4tsname)",tap_action:"Aktion bei Tippen",hold_action:"Aktion bei Gedr\xFCckt-Halten",toggle:"Schalten",more_info:"Mehr Info",none:"Keine",last_changed:"Zuletzt ge\xE4ndert",kwh_today:"kWh heute",cost_today:"Kosten heute",energy_total:"Verbrauch gesamt",cost_total:"Kosten gesamt",price_per_kwh:"Preis pro kWh",show_sparkline:"Sparkline anzeigen",sparkline:"Sparkline (24h)",manual_cost:"Manuelle Kostenberechnung",period_today:"Heute",period_month:"Monat",period_year:"Jahr"},
+  en:{title:"Title",outlets:"Outlets",add_outlet:"+ Add outlet",outlet_entity:"Outlet entity",power_entity:"Power entity (optional)",energy_entity:"Energy entity (optional)",cost_entity:"Cost entity (optional, Powercalc)",icon:"Icon",name:"Name",show_power:"Show power",show_energy:"Show energy",show_cost:"Show cost",show_icon:"Show icon",show_name:"Show name",show_state:"Show state",columns:"Columns",gap:"Gap between cards",outlet_settings:"Outlet settings",display_options:"Display options",layout:"Layout",grid:"Grid",list:"List",compact:"Compact",power:"Power",energy:"Energy",cost:"Cost",today:"today",total:"total",on:"on",off:"off",unknown:"unknown",unavailable:"unavailable",confirm_delete:"Remove this outlet?",no_outlets:"No outlets configured. Add one!",card_title:"Power Outlets",theme_aware:"Use theme colors",show_header:"Show card header",rounded:"Rounded corners",power_calc_detected:"Powercalc detected",auto_detect:"Auto-detect (Powercalc)",advanced:"Advanced",general:"General",per_outlet:"Per outlet",move_up:"Move up",move_down:"Move down",remove:"Remove",outlet_name_hint:"Name (empty = entity name)",tap_action:"Tap action",hold_action:"Hold action",toggle:"Toggle",more_info:"More info",none:"None",last_changed:"Last changed",kwh_today:"kWh today",cost_today:"Cost today",energy_total:"Energy total",cost_total:"Cost total",price_per_kwh:"Price per kWh",show_sparkline:"Show sparkline",sparkline:"Sparkline (24h)",manual_cost:"Manual cost calculation",period_today:"Today",period_month:"Month",period_year:"Year"},
+  fr:{title:"Titre",outlets:"Prises",add_outlet:"+ Ajouter une prise",outlet_entity:"Entit\xE9 de prise",power_entity:"Entit\xE9 de puissance (optionnel)",energy_entity:"Entit\xE9 de consommation (optionnel)",cost_entity:"Entit\xE9 de co\xFBt (optionnel, Powercalc)",icon:"Ic\xF4ne",name:"Nom",show_power:"Afficher la puissance",show_energy:"Afficher la consommation",show_cost:"Afficher les co\xFBts",show_icon:"Afficher l'ic\xF4ne",show_name:"Afficher le nom",show_state:"Afficher l'\xE9tat",columns:"Colonnes",gap:"Espacement entre cartes",outlet_settings:"Param\xE8tres des prises",display_options:"Options d'affichage",layout:"Disposition",grid:"Grille",list:"Liste",compact:"Compact",power:"Puissance",energy:"Consommation",cost:"Co\xFBt",today:"aujourd'hui",total:"total",on:"allum\xE9",off:"\xE9teint",unknown:"inconnu",unavailable:"indisponible",confirm_delete:"Supprimer cette prise?",no_outlets:"Aucune prise configur\xE9e. Ajoutez-en une!",card_title:"Prises",theme_aware:"Utiliser les couleurs du th\xE8me",show_header:"Afficher l'en-t\xEAte",rounded:"Coins arrondis",power_calc_detected:"Powercalc d\xE9tect\xE9",auto_detect:"D\xE9tection auto (Powercalc)",advanced:"Avanc\xE9",general:"G\xE9n\xE9ral",per_outlet:"Par prise",move_up:"Monter",move_down:"Descendre",remove:"Supprimer",outlet_name_hint:"Nom (vide = nom de l'entit\xE9)",tap_action:"Action au toucher",hold_action:"Action au maintien",toggle:"Basculer",more_info:"Plus d'infos",none:"Aucune",last_changed:"Dernier changement",kwh_today:"kWh aujourd'hui",cost_today:"Co\xFBt aujourd'hui",energy_total:"Consommation totale",cost_total:"Co\xFBt total",price_per_kwh:"Prix par kWh",show_sparkline:"Afficher sparkline",sparkline:"Sparkline (24h)",manual_cost:"Calcul manuel des co\xFBts",period_today:"Aujourd'hui",period_month:"Mois",period_year:"Ann\xE9e"},
+  nl:{title:"Titel",outlets:"Stopcontacten",add_outlet:"+ Stopcontact toevoegen",outlet_entity:"Stopcontact entiteit",power_entity:"Vermogen entiteit (optioneel)",energy_entity:"Verbruik entiteit (optioneel)",cost_entity:"Kosten entiteit (optioneel, Powercalc)",icon:"Icoon",name:"Naam",show_power:"Toon vermogen",show_energy:"Toon verbruik",show_cost:"Toon kosten",show_icon:"Toon icoon",show_name:"Toon naam",show_state:"Toon status",columns:"Kolommen",gap:"Afstand tussen kaarten",outlet_settings:"Stopcontact instellingen",display_options:"Weergave opties",layout:"Layout",grid:"Raster",list:"Lijst",compact:"Compact",power:"Vermogen",energy:"Verbruik",cost:"Kosten",today:"vandaag",total:"totaal",on:"aan",off:"uit",unknown:"onbekend",unavailable:"niet beschikbaar",confirm_delete:"Dit stopcontact verwijderen?",no_outlets:"Geen stopcontacten geconfigureerd. Voeg er een toe!",card_title:"Stopcontacten",theme_aware:"Thema kleuren gebruiken",show_header:"Kaart koptekst tonen",rounded:"Afgeronde hoeken",power_calc_detected:"Powercalc gedetecteerd",auto_detect:"Auto-detectie (Powercalc)",advanced:"Geavanceerd",general:"Algemeen",per_outlet:"Per stopcontact",move_up:"Omhoog",move_down:"Omlaag",remove:"Verwijderen",outlet_name_hint:"Naam (leeg = entiteit naam)",tap_action:"Tik actie",hold_action:"Houd actie",toggle:"Schakel",more_info:"Meer info",none:"Geen",last_changed:"Laatst gewijzigd",kwh_today:"kWh vandaag",cost_today:"Kosten vandaag",energy_total:"Verbruik totaal",cost_total:"Kosten totaal",price_per_kwh:"Prijs per kWh",show_sparkline:"Sparkline tonen",sparkline:"Sparkline (24h)",manual_cost:"Handmatige kostenberekening",period_today:"Vandaag",period_month:"Maand",period_year:"Jaar"},
+  es:{title:"T\xEDtulo",outlets:"Enchufes",add_outlet:"+ A\xF1adir enchufe",outlet_entity:"Entidad de enchufe",power_entity:"Entidad de potencia (opcional)",energy_entity:"Entidad de consumo (opcional)",cost_entity:"Entidad de coste (opcional, Powercalc)",icon:"Icono",name:"Nombre",show_power:"Mostrar potencia",show_energy:"Mostrar consumo",show_cost:"Mostrar coste",show_icon:"Mostrar icono",show_name:"Mostrar nombre",show_state:"Mostrar estado",columns:"Columnas",gap:"Espacio entre tarjetas",outlet_settings:"Ajustes de enchufes",display_options:"Opciones de visualizaci\xF3n",layout:"Dise\xF1o",grid:"Cuadr\xEDcula",list:"Lista",compact:"Compacto",power:"Potencia",energy:"Consumo",cost:"Coste",today:"hoy",total:"total",on:"encendido",off:"apagado",unknown:"desconocido",unavailable:"no disponible",confirm_delete:"\xBFEliminar este enchufe?",no_outlets:"No hay enchufes configurados. \xA1A\xF1ade uno!",card_title:"Enchufes",theme_aware:"Usar colores del tema",show_header:"Mostrar encabezado",rounded:"Esquinas redondeadas",power_calc_detected:"Powercalc detectado",auto_detect:"Detecci\xF3n autom\xE1tica (Powercalc)",advanced:"Avanzado",general:"General",per_outlet:"Por enchufe",move_up:"Subir",move_down:"Bajar",remove:"Eliminar",outlet_name_hint:"Nombre (vac\xEDo = nombre de entidad)",tap_action:"Acci\xF3n al tocar",hold_action:"Acci\xF3n al mantener",toggle:"Conmutar",more_info:"M\xE1s info",none:"Ninguna",last_changed:"\xDAltimo cambio",kwh_today:"kWh hoy",cost_today:"Coste hoy",energy_total:"Consumo total",cost_total:"Coste total",price_per_kwh:"Precio por kWh",show_sparkline:"Mostrar sparkline",sparkline:"Sparkline (24h)",manual_cost:"C\xE1lculo manual de costes",period_today:"Hoy",period_month:"Mes",period_year:"A\xF1o"},
 };
 
 function getLang(hass){const lang=(hass.locale?.language||hass.language||"en").split("-")[0];return I18N[lang]?lang:"en";}
@@ -35,7 +35,7 @@ function autoDetectEntities(hass,switchEntity){
 // ===== Editor =====
 let PEEditor=class extends re{
   setConfig(config){
-    this._config={title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,theme_aware:true,rounded:true,price_per_kwh:0,show_sparkline:false,...config,type:config.type||CARD_TYPE};
+    this._config={title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,theme_aware:true,rounded:true,price_per_kwh:0,show_sparkline:false,energy_period:"today",...config,type:config.type||CARD_TYPE};
   }
   _emit(){this.dispatchEvent(new CustomEvent("config-changed",{detail:{config:this._config},bubbles:true,composed:true}));}
   _patch(patch){this._config={...this._config,...patch};this._emit();}
@@ -98,11 +98,11 @@ PEEditor=e([ce(EDITOR_TAG)],PEEditor);
 // ===== Main Card =====
 let PowerOutletCard=class extends re{
   constructor(){super(...arguments);this._tick=0;}
-  setConfig(config){if(!config)throw new Error("Invalid configuration");this._config={title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,theme_aware:true,rounded:true,price_per_kwh:0,show_sparkline:false,...config,type:config.type||CARD_TYPE};if(!this._historyCache)this._historyCache=new Map();}
+  setConfig(config){if(!config)throw new Error("Invalid configuration");this._config={title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,theme_aware:true,rounded:true,price_per_kwh:0,show_sparkline:false,energy_period:"today",...config,type:config.type||CARD_TYPE};if(!this._historyCache)this._historyCache=new Map();if(!this._periodCache)this._periodCache=new Map();}
   getCardSize(){const count=this._config?.outlets?.length||1;if(this._config?.layout==="grid")return Math.max(1,Math.ceil(count/(this._config.columns||2)));return Math.max(1,count);}
   getGridOptions(){return{columns:12,rows:"auto",min_columns:6,min_rows:4};}
   static getConfigElement(){return document.createElement(EDITOR_TAG);}
-  static getStubConfig(){return{type:CARD_TYPE,title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,price_per_kwh:0,show_sparkline:false};}
+  static getStubConfig(){return{type:CARD_TYPE,title:"",outlets:[],layout:"grid",columns:2,gap:8,show_header:true,show_power:true,show_energy:true,show_cost:true,show_icon:true,show_name:true,show_state:true,price_per_kwh:0,show_sparkline:false,energy_period:"today"};}
   connectedCallback(){super.connectedCallback();this._timer=window.setInterval(()=>{this._tick++;},30000);}
   disconnectedCallback(){super.disconnectedCallback();this._timer&&window.clearInterval(this._timer);}
   _toggleOutlet(entity,ev){ev.stopPropagation();if(!entity)return;const domain=entity.split(".")[0];this.hass.callService(domain,"toggle",{},{entity_id:entity});}
@@ -121,7 +121,6 @@ let PowerOutletCard=class extends re{
     if(outlet.energy_entity){const es=hass.states[outlet.energy_entity];if(es&&!["unavailable","unknown"].includes(es.state)){energyVal=parseFloat(es.state);energyUnit=es.attributes?.unit_of_measurement||"kWh";}}
     let costVal=null,costUnit="";
     if(outlet.cost_entity){const cs=hass.states[outlet.cost_entity];if(cs&&!["unavailable","unknown"].includes(cs.state)){costVal=parseFloat(cs.state);costUnit=cs.attributes?.unit_of_measurement||"";}}
-    if(costVal===null&&this._config.price_per_kwh&&energyVal!==null){costVal=energyVal*this._config.price_per_kwh;costUnit="";}
     return{state,isOn,isOff,isUnavailable,friendlyName,name,icon,powerVal,powerUnit,energyVal,energyUnit,costVal,costUnit};
   }
 
@@ -156,6 +155,71 @@ let PowerOutletCard=class extends re{
     return V`<svg class="sparkline" viewBox="0 0 100 20" preserveAspectRatio="none"><polygon points="${areaPoints.join(" ")}" fill="var(--primary-color,#03a9f4)" opacity="0.15" /><polyline points="${points.join(" ")}" fill="none" stroke="var(--primary-color,#03a9f4)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke" /></svg>`;
   }
 
+  _periodRange(period){
+    const now=new Date();
+    let start;
+    if(period==="month"){start=new Date(now.getFullYear(),now.getMonth(),1);}
+    else if(period==="year"){start=new Date(now.getFullYear(),0,1);}
+    else{start=new Date(now.getFullYear(),now.getMonth(),now.getDate());}
+    return{start,end:now};
+  }
+  _fetchPeriodEnergy(entity,period){
+    if(!entity||!this.hass)return;
+    if(!this._periodCache)this._periodCache=new Map();
+    const key=entity+"|"+period;
+    const cached=this._periodCache.get(key);
+    const now=Date.now();
+    if(cached&&!cached.loading&&cached.timestamp&&(now-cached.timestamp)<300000)return;
+    if(cached&&cached.loading&&cached.fetching)return;
+    const range=this._periodRange(period);
+    const self=this;
+    this._periodCache.set(key,{timestamp:now,loading:true,fetching:true,value:null});
+    this.hass.callWS({
+      type:"recorder/statistics_during_period",
+      start_time:range.start.toISOString(),
+      end_time:range.end.toISOString(),
+      statistic_ids:[entity],
+      period:"hour",
+      types:["sum"]
+    }).then(function(data){
+      let consumption=null;
+      if(data&&data[entity]&&data[entity].length){
+        const arr=data[entity];
+        const first=arr[0];
+        const last=arr[arr.length-1];
+        if(typeof first.sum==="number"&&typeof last.sum==="number"){
+          const diff=last.sum-first.sum;
+          if(diff>0){consumption=diff;}
+          else if(diff===0){consumption=0;}
+          else{
+            const es=self.hass&&self.hass.states?self.hass.states[entity]:null;
+            if(es&&es.state&&Number.isFinite(parseFloat(es.state))){consumption=parseFloat(es.state);}
+          }
+        }
+      }
+      self._periodCache.set(key,{timestamp:now,loading:false,value:consumption});
+      self.requestUpdate();
+    }).catch(function(){self._periodCache.set(key,{timestamp:now,loading:false,value:null});self.requestUpdate();});
+  }
+  _getPeriodEnergy(outlet){
+    const period=this._config.energy_period||"today";
+    if(outlet.energy_entity){this._fetchPeriodEnergy(outlet.energy_entity,period);}
+    if(!this._periodCache)return{loading:false,value:null};
+    const cached=this._periodCache.get((outlet.energy_entity||"")+"|"+period);
+    if(!cached)return{loading:false,value:null};
+    if(cached.loading)return{loading:true,value:null};
+    return{loading:false,value:typeof cached.value==="number"?cached.value:null};
+  }
+  _setPeriod(period){
+    this._config={...this._config,energy_period:period};
+    if(this._periodCache){
+      (this._config.outlets||[]).forEach(function(o){
+        if(o.energy_entity){this._periodCache.set(o.energy_entity+"|"+period,{timestamp:Date.now(),loading:true,value:null});}
+      }.bind(this));
+    }
+    this.requestUpdate();
+  }
+
   _renderOutlet(outlet){
     const d=this._getOutletData(outlet);const cfg=this._config;const self=this;
     const T=function(key){return tr(self.hass,key);};
@@ -164,8 +228,12 @@ let PowerOutletCard=class extends re{
     const stateLabel=d.isOn?T("on"):d.isOff?T("off"):d.isUnavailable?T("unavailable"):T("unknown");
     const stateClass=d.isOn?"on":d.isOff?"off":"unavailable";
     const powerChip=cfg.show_power&&d.powerVal!==null?V`<div class="data-chip"><ha-icon icon="mdi:flash"></ha-icon><span class="data-val">${formatNumber(d.powerVal,d.powerUnit=="W"?0:2)} ${d.powerUnit}</span></div>`:W;
-    const energyChip=cfg.show_energy&&d.energyVal!==null?V`<div class="data-chip"><ha-icon icon="mdi:counter"></ha-icon><span class="data-val">${formatEnergy(d.energyVal)||(formatNumber(d.energyVal,2)+" "+d.energyUnit)}</span></div>`:W;
-    const costChip=cfg.show_cost&&d.costVal!==null?V`<div class="data-chip cost"><ha-icon icon="mdi:currency-eur"></ha-icon><span class="data-val">${formatCost(d.costVal,d.costUnit)}</span></div>`:W;
+    const periodData=this._getPeriodEnergy(outlet);
+    const periodEnergy=periodData.value;
+    const energyValToShow=(periodData.loading||periodEnergy===null)?d.energyVal:periodEnergy;
+    const energyChip=cfg.show_energy&&d.energyVal!==null?V`<div class="data-chip"><ha-icon icon="mdi:counter"></ha-icon><span class="data-val">${periodData.loading?"…":((periodEnergy!==null?formatEnergy(periodEnergy):formatEnergy(d.energyVal))||(formatNumber(energyValToShow,2)+" "+d.energyUnit))}</span></div>`:W;
+    const costBase=(periodData.loading||periodEnergy===null)?d.energyVal:periodEnergy;
+    const costChip=cfg.show_cost&&d.costVal!==null?V`<div class="data-chip cost"><ha-icon icon="mdi:currency-eur"></ha-icon><span class="data-val">${periodData.loading?"…":formatCost(d.costVal,d.costUnit)}</span></div>`:(cfg.show_cost&&cfg.price_per_kwh&&costBase!==null?V`<div class="data-chip cost"><ha-icon icon="mdi:currency-eur"></ha-icon><span class="data-val">${periodData.loading?"…":formatCost(costBase*cfg.price_per_kwh)}</span></div>`:W);
     const showSpark=cfg.show_sparkline&&outlet.power_entity;
     if(showSpark){this._fetchHistory(outlet.power_entity);}
     const sparkline=showSpark?V`<div class="outlet-sparkline">${this._renderSparkline(outlet.power_entity)}</div>`:W;
@@ -180,7 +248,10 @@ let PowerOutletCard=class extends re{
     if(!outlets.length){return V`<ha-card><div class="empty">${T("no_outlets")}</div></ha-card>`;}
     const containerClass=cfg.layout==="grid"?"outlets-grid columns-"+(cfg.columns||2):cfg.layout==="compact"?"outlets-compact":"outlets-list";
     const themeClass=cfg.theme_aware===false?"no-theme":"";
-    return V`<ha-card class="${themeClass}">${cfg.show_header&&cfg.title?V`<div class="card-title">${cfg.title}</div>`:W}<div class="${containerClass}" style="gap:${cfg.gap??8}px;">${outlets.map(o=>this._renderOutlet(o))}</div></ha-card>`;
+    const hasEnergy=outlets.some(o=>o.energy_entity);
+    const activePeriod=cfg.energy_period||"today";
+    const periodSwitcher=hasEnergy?V`<div class="period-switcher"><button class="seg-btn ${activePeriod==="today"?"active":""}" @click=${()=>this._setPeriod("today")}>${T("period_today")}</button><button class="seg-btn ${activePeriod==="month"?"active":""}" @click=${()=>this._setPeriod("month")}>${T("period_month")}</button><button class="seg-btn ${activePeriod==="year"?"active":""}" @click=${()=>this._setPeriod("year")}>${T("period_year")}</button></div>`:W;
+    return V`<ha-card class="${themeClass}">${cfg.show_header&&cfg.title?V`<div class="card-title">${cfg.title}</div>`:W}${periodSwitcher}<div class="${containerClass}" style="gap:${cfg.gap??8}px;">${outlets.map(o=>this._renderOutlet(o))}</div></ha-card>`;
   }
 };
 
@@ -188,6 +259,10 @@ PowerOutletCard.styles=a`
 :host{display:block;width:100%;--power-outlet-card-bg:transparent;}
 ha-card{width:100%;box-sizing:border-box;padding:12px;background:transparent;box-shadow:none;border:none;}
 .card-title{font-size:var(--ha-card-header-font-size,18px);font-weight:var(--ha-card-header-font-weight,600);color:var(--ha-card-header-color,var(--primary-text-color));padding:4px 4px 8px;}
+.period-switcher{display:flex;gap:4px;padding:0 4px 10px;}
+.period-switcher .seg-btn{flex:1;padding:6px 10px;border:1px solid var(--divider-color);background:var(--secondary-background-color);border-radius:8px;color:var(--primary-text-color);font-size:12px;cursor:pointer;text-align:center;}
+.period-switcher .seg-btn:hover{background:var(--card-background-color);}
+.period-switcher .seg-btn.active{background:var(--primary-color);color:var(--text-primary-color,#fff);border-color:var(--primary-color);}
 .empty{padding:24px;text-align:center;color:var(--secondary-text-color);font-size:14px;}
 .outlets-grid{display:grid;grid-template-columns:repeat(var(--cols,2),1fr);}
 .outlets-grid.columns-1{--cols:1;}

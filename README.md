@@ -6,8 +6,8 @@ A custom Lovelace card for Home Assistant to switch outlets and display power, e
 
 - **Switch outlets** — Toggle any switch/smart_plug/outlet entity
 - **Power display** — Show current power consumption (W)
-- **Energy display** — Show total energy consumption (kWh/MWh/Wh)
-- **Cost display** — Show energy costs via Powercalc cost entity OR manual price calculation
+- **Energy display with period switcher** — Show energy consumption for Today, Month or Year (via HA long-term statistics)
+- **Cost display** — Show energy costs via Powercalc cost entity OR manual price calculation, matching the selected period
 - **Manual cost calculation** — Set a price per kWh (e.g. 0.35 €) and the card calculates costs automatically — no Powercalc needed
 - **Powercalc auto-detect** — Automatically detects `sensor.{entity}_power`, `_energy`, `_energy_cost` entities
 - **Mini sparkline** — Optional 24h power history as small SVG line chart (like the sensor card)
@@ -85,6 +85,7 @@ outlets:
 | `rounded` | bool | true | Rounded corners |
 | `price_per_kwh` | number | 0 | Price per kWh for manual cost calculation (0 = disabled) |
 | `show_sparkline` | bool | false | Show 24h power sparkline |
+| `energy_period` | string | "today" | Active energy period: "today", "month" or "year" (switched via UI) |
 
 ### Outlet Options
 
@@ -107,6 +108,22 @@ The card supports two ways to display energy costs:
 2. **Manual calculation** (no Powercalc needed): Set `price_per_kwh` to your electricity price (e.g. `0.35` for 0.35 €/kWh). The card calculates: `cost = energy_kWh × price_per_kwh`. This works with any energy sensor and requires no additional integration.
 
 If both are configured, `cost_entity` takes priority.
+
+### Energy Period Switcher
+
+The card shows a **Today / Month / Year** switcher above the outlets (only when at least one outlet has an `energy_entity`). It uses Home Assistant's long-term statistics to calculate the energy consumed in the selected period from the device's cumulative energy meter:
+
+```
+consumption = final meter reading − meter reading at period start
+```
+
+- **Today** — works immediately
+- **Month** — requires ~1 month of statistics
+- **Year** — requires ~1 year of statistics
+
+If the recorder does not yet hold enough history for the selected period, the card shows the fallback value. The cost chip always reflects the selected period when manual cost calculation is used.
+
+> **Note:** This uses HA's long-term statistics (the same data as the Energy dashboard), which are retained much longer than the raw state history. No recorder configuration changes are required.
 
 ## License
 
