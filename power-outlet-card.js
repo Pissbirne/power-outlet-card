@@ -274,7 +274,7 @@ ha-card{width:100%;box-sizing:border-box;padding:12px;background:transparent;box
 .outlets-list{display:flex;flex-direction:column;}
 .outlets-compact{display:flex;flex-wrap:wrap;}
 .outlets-compact .outlet{flex:1 1 auto;min-width:120px;}
-.outlet{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);overflow:hidden;transition:background 0.3s ease,border-color 0.3s ease,transform 0.15s ease;display:flex;flex-direction:column;}
+.outlet{background:var(--card-background-color,rgba(30,24,56,0.85));border:1px solid var(--ha-card-border-color,rgba(255,255,255,0.1));overflow:hidden;transition:background 0.3s ease,border-color 0.3s ease,transform 0.15s ease;display:flex;flex-direction:column;}
 .outlet:hover{border-color:var(--primary-color,#03a9f4);}
 .outlet.on{border-left:3px solid var(--success-color,#4caf50);}
 .outlet.off{border-left:3px solid var(--state-inactive-color,var(--divider-color,#757575));opacity:0.85;}
@@ -306,7 +306,8 @@ ha-card{width:100%;box-sizing:border-box;padding:12px;background:transparent;box
 .outlet-sparkline{padding:0 12px 8px;width:100%;box-sizing:border-box;height:24px;}
 .sparkline{width:100%;height:24px;display:block;}
 .sparkline-loading{width:100%;height:24px;}
-ha-card.no-theme .outlet{background:#1a1a1a;border-color:#333;}
+ha-card.no-theme{background:transparent;}
+ha-card.no-theme .outlet{background:rgba(30,24,56,0.85);border-color:rgba(139,92,246,0.20);}
 ha-card.no-theme .outlet:hover{border-color:#03a9f4;}
 ha-card.no-theme .outlet.on{border-left-color:#4caf50;}
 ha-card.no-theme .outlet.off{border-left-color:#555;opacity:0.7;}
@@ -324,6 +325,8 @@ ha-card.no-theme .data-chip{background:rgba(0,0,0,0.4);color:#fff;}
 ha-card.no-theme .data-chip ha-icon{color:#aaa;}
 ha-card.no-theme .data-chip.cost{background:rgba(76,175,80,0.2);}
 ha-card.no-theme .data-chip.cost ha-icon{color:#4caf50;}
+ha-card.no-theme .period-switcher .seg-btn{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);color:#fff;}
+ha-card.no-theme .period-switcher .seg-btn.active{background:#03a9f4;color:#fff;border-color:#03a9f4;}
 ha-card.no-theme .card-title{color:#fff;}
 ha-card.no-theme .empty{color:#999;}
 ha-card.no-theme .sparkline polyline{stroke:#03a9f4;}
